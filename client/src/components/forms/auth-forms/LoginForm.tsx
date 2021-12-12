@@ -22,7 +22,8 @@ function LoginForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    console.log(userData);
+    const response = await axios.post("http://localhost:8090/api/auth/login", userData);
+    console.log(response.data);
   }
 
   return (

@@ -24,13 +24,13 @@ function RegisterForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    const response = await axios.post("http://localhost:8090/api/users", userData);
-    console.log(response);
+    const response = await axios.post("http://localhost:8090/api/auth/register", userData);
+    console.log(response.data);
   }
 
   return (
     <div className="container">
-      <h1 className="text-center text-3xl text-gray-700 mb-6">Login</h1>
+      <h1 className="text-center text-3xl text-gray-700 mb-6">Register</h1>
       <form className="w-full max-w-sm m-auto" onSubmit={handleSubmit}>
 
         <div className="md:flex md:items-center mb-6">
