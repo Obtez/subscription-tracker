@@ -13,3 +13,14 @@ export interface Subscription extends NewSubscription{
   _id: ObjectId;
 }
 
+export interface UserLogin {
+  email: string;
+  password: string;
+}
+
+export interface UserRegister {
+  userName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
