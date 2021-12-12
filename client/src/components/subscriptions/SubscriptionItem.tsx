@@ -1,9 +1,16 @@
+import axios from "axios";
 import { Subscription } from "../../types/types";
+import SubscriptionOptions from "./SubscriptionOptions";
 
-function SubscriptionItem({subscription}: {subscription: Subscription}) {
+interface Props {
+  subscription: Subscription;
+  updateData: () => void;
+}
+
+function SubscriptionItem({ subscription, updateData }: Props) {
   if (!subscription) return null;
   
-  const { name, cost, intervalInMonths, status } = subscription;
+  const { _id, name, cost, intervalInMonths, status } = subscription;
 
   const statusColor = () => {
     switch (status) {
@@ -21,6 +28,11 @@ function SubscriptionItem({subscription}: {subscription: Subscription}) {
     }
   }
 
+  const deleteEntry = async () => {
+    await axios.delete(`http://localhost:8090/api/subscriptions/${_id}`)
+    updateData()
+  }
+
 
 
   return (
@@ -29,6 +41,7 @@ function SubscriptionItem({subscription}: {subscription: Subscription}) {
         <p>{ name }</p>
         <p>{cost} / { intervalInMonths } month(s)</p>
       </div>
+        <SubscriptionOptions deleteEntry={deleteEntry} />
     </li>
   )
 }
