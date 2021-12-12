@@ -1,0 +1,29 @@
+{
+  "name": "subscriptions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "server": "nodemon server/app.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Obtez/subscription-tracker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Obtez/subscription-tracker/issues"
+  },
+  "homepage": "https://github.com/Obtez/subscription-tracker#readme",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^6.1.1"
+  },
+  "devDependencies": {
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "nodemon": "^2.0.15"
+  }
+}
