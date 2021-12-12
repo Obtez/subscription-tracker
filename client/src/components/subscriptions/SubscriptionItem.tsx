@@ -6,8 +6,11 @@ function SubscriptionItem({subscription}: {subscription: Subscription}) {
   const { name, cost, intervalInMonths, status } = subscription;
 
   return (
-    <li className="bg-zinc-200">
-      <p>{name} - {cost} / { intervalInMonths} month</p>
+    <li className="bg-gray-200 rounded px-4 py-2 mb-2">
+      <div className="flex justify-between text-gray-700">
+        <p>{ name }</p>
+        <p>{cost} / { intervalInMonths } month(s)</p>
+      </div>
     </li>
   )
 }

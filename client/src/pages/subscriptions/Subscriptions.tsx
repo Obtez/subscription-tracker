@@ -22,8 +22,8 @@ function Subscriptions() {
   }, [])
 
   return (
-    <div>
-      <h1>Your Subscriptions</h1>
+    <div className="container py-2 px-4">
+      <h1 className="text-3xl text-gray-700">Your Subscriptions</h1>
       {data.length > 0 ? <SubscriptionList subscriptions={data} /> : <p>No subscriptions found.</p>}
     </div>
   )

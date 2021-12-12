@@ -3,7 +3,7 @@ import SubscriptionItem from "./SubscriptionItem";
 
 function SubscriptionList({ subscriptions }: { subscriptions: Subscription[] }) {
   return (
-    <ul>
+    <ul className="container">
       {
         subscriptions.map(subscription => <SubscriptionItem key={subscription._id.toString()} subscription={subscription} />)
       }
