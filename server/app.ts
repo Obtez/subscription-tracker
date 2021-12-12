@@ -3,6 +3,7 @@ import express, { Request, Response } from 'express';
 import mongoose, { ConnectOptions } from "mongoose";
 import cors from "cors";
 import subscriptionRoutes from "./routes/subscription";
+import userRoutes from "./routes/user";
 
 dotenv.config();
 
@@ -30,7 +31,8 @@ app.get("/", (req: Request, res: Response) => {
   res.json({message: "Hello World"})
 })
 
-app.use("/api/subscriptions", subscriptionRoutes)
+app.use("/api/subscriptions", subscriptionRoutes);
+app.use("/api/users", userRoutes);
 
 app.listen(PORT, () => {
   console.log("Server running on port", PORT)
