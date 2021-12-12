@@ -60,7 +60,7 @@ function SubscriptionItem({ subscription, updateData }: Props) {
     <li className={`${statusColor()}-200 rounded px-4 py-2 mb-2 cursor-pointer`} onClick={openOptionsDrawer}>
       <div className="flex justify-between text-gray-700">
         <p>{ name }</p>
-        <p>{cost} / { intervalInMonths } month(s)</p>
+        <p>{cost.toFixed(2)} / { intervalInMonths } month(s)</p>
       </div>
 
       <SubscriptionOptions isOpen={isOpen} deleteEntry={deleteEntry} openEditModal={openEditModal} statusColor={statusColor()} />

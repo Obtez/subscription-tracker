@@ -22,13 +22,13 @@ function SubscriptionForm() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    await axios.post("http://localhost:8090/api/subscriptions", data)
-    setData(emptySubscription)
+      await axios.post("http://localhost:8090/api/subscriptions", data)
+      setData(emptySubscription)
   }
 
   return (
     <div className="container">
-      <h1 className="text-3xl text-gray-700">Add a new subscription</h1>
+      <h1 className="text-3xl text-gray-700 mb-6">Add a new subscription</h1>
       <form className="w-full max-w-sm m-auto" onSubmit={handleSubmit}>
           <div className="md:flex md:items-center mb-6">
             <div className="md:w-1/3">
@@ -88,7 +88,6 @@ function SubscriptionForm() {
               id="status" 
               value={data.status} 
               onChange={handleChange}>
-                <option value="">Choose an option</option>
                 <option value="active">active</option>
                 <option value="inactive">inactive</option>
                 <option value="expiring">expiring</option>

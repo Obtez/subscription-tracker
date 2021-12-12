@@ -84,7 +84,6 @@ function EditForm({ subscription, updateEntry }: Props) {
                 id="status" 
                 value={data.status} 
                 onChange={handleChange}>
-                  <option value="">Choose an option</option>
                   <option value="active">active</option>
                   <option value="inactive">inactive</option>
                   <option value="expiring">expiring</option>
