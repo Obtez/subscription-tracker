@@ -38,6 +38,12 @@ function SubscriptionItem({ subscription, updateData }: Props) {
     updateData()
   }
 
+  const updateEntry = async (data: Subscription) => {
+    await axios.put(`http://localhost:8090/api/subscriptions/${_id}`, data)
+    updateData()
+    closeEditModal()
+  }
+
   const openOptionsDrawer = () => {
     setIsOpen(!isOpen)
   }
@@ -58,7 +64,7 @@ function SubscriptionItem({ subscription, updateData }: Props) {
       </div>
 
       <SubscriptionOptions isOpen={isOpen} deleteEntry={deleteEntry} openEditModal={openEditModal} statusColor={statusColor()} />
-      <EditModal subscription={subscription} closeEditModal={closeEditModal} showModal={showModal} />
+      <EditModal subscription={subscription} closeEditModal={closeEditModal} showModal={showModal} updateEntry={updateEntry} />
     </li>
   )
 }
