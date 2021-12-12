@@ -12,7 +12,7 @@ const emptySubscription: NewSubscription = {
 function SubscriptionForm() {
   const [data, setData] = useState<NewSubscription>(emptySubscription)
 
-  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target
     setData({
       ...data,
@@ -81,7 +81,11 @@ function SubscriptionForm() {
             <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="status">Status</label>
           </div>
             <div className="md:w-2/3">
-              <select className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" name="status" id="status">
+              <select className="bg-gray-200 appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-purple-500" 
+              name="status" 
+              id="status" 
+              value={data.status} 
+              onChange={handleChange}>
                 <option value="">Choose an option</option>
                 <option value="active">active</option>
                 <option value="inactive">inactive</option>
