@@ -23,11 +23,13 @@ function SubscriptionForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     await axios.post("http://localhost:8090/api/subscriptions", data)
+    setData(emptySubscription)
   }
 
   return (
     <div className="container">
-      <form className="w-full max-w-sm" onSubmit={handleSubmit}>
+      <h1 className="text-3xl text-gray-700">Add a new subscription</h1>
+      <form className="w-full max-w-sm m-auto" onSubmit={handleSubmit}>
           <div className="md:flex md:items-center mb-6">
             <div className="md:w-1/3">
               <label className="block text-gray-500 font-bold md:text-right mb-1 md:mb-0 pr-4" htmlFor="name">Name</label>
