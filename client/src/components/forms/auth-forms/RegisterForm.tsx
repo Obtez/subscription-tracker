@@ -25,7 +25,6 @@ function RegisterForm() {
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     const response = await axios.post("http://localhost:8090/api/auth/register", userData);
-    console.log(response.data);
   }
 
   return (
