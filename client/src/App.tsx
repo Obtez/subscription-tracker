@@ -6,7 +6,6 @@ import Subscriptions from './pages/subscriptions/Subscriptions';
 function App() {
   return (
     <div className="App">
-      <SubscriptionForm />
       <Subscriptions />
     </div>
   );

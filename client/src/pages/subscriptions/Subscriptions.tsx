@@ -7,6 +7,7 @@ import { Subscription } from '../../types/types';
 
 function Subscriptions() { 
   const [data, setData] = useState<Subscription[]>([])
+  const [isLoading, setIsLoading] = useState<boolean>(false)
 
   const fetchSubscriptions = async () => {
     const response = await axios.get("http://localhost:8090/api/subscriptions")
@@ -17,14 +18,24 @@ function Subscriptions() {
     }
   }
 
+   const updateData = () => {
+    setIsLoading(true)
+    setIsLoading(true)
+    fetchSubscriptions().then(() => setIsLoading(false))
+  }
+
   useEffect(() => {
-    fetchSubscriptions()
+    updateData()
   }, [])
 
   return (
     <div className="container py-2 px-4">
       <h1 className="text-3xl text-gray-700">Your Subscriptions</h1>
-      {data.length > 0 ? <SubscriptionList subscriptions={data} /> : <p>No subscriptions found.</p>}
+      {isLoading ? <p>Loading...</p> : (
+        <>
+        { data.length > 0 ? <SubscriptionList subscriptions={data} updateData={updateData} /> : <p>No subscriptions found.</p> }
+        </>
+      )}
     </div>
   )
 }

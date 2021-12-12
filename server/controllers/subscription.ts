@@ -24,3 +24,14 @@ export const createNewSubscription = (req: Request, res: Response) => {
     res.json(subscription)
   })
 }
+
+// delete entry by id
+export const deleteEntryById = (req: Request, res: Response) => {
+  Subscription.findByIdAndDelete({ _id: req.params.id }, (err: any) => {
+    if (err) {
+      res.status(500).send(err)
+    } else {
+      res.json({message: "Entry deleted."})
+    }
+  })
+}
