@@ -10,7 +10,7 @@ function Layout({ children }: Props) {
   return (
     <div className="flex flex-col h-screen">
       <Navbar />
-      <div className="container flex-grow">{children}</div>
+      <div className="container flex-grow px-4 pt-6">{children}</div>
       <Footer />
     </div>
   )

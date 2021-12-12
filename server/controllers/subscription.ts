@@ -35,3 +35,14 @@ export const deleteEntryById = (req: Request, res: Response) => {
     }
   })
 }
+
+// update entry by id
+export const updateEntryById = (req: Request, res: Response) => {
+  Subscription.findByIdAndUpdate({ _id: req.params.id }, req.body, (err: any, subscription: any) => {
+    if (err) {
+      res.status(500).send(err)
+    } else {
+      res.json({message: "Entry updated."})
+    }
+  })
+}

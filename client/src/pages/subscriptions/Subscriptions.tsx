@@ -29,7 +29,7 @@ function Subscriptions() {
   }, [])
 
   return (
-    <div className="container py-2 px-4">
+    <div className="container">
       <h1 className="text-3xl text-gray-700">Your Subscriptions</h1>
       {isLoading ? <p>Loading...</p> : (
         <>
