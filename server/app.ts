@@ -1,12 +1,14 @@
 import dotenv from 'dotenv';
 import express, { Request, Response } from 'express';
-import mongoose, { ConnectOptions } from "mongoose"
+import mongoose, { ConnectOptions } from "mongoose";
+import cors from "cors";
 import subscriptionRoutes from "./routes/subscription";
 
 dotenv.config();
 
 const app = express();
 
+app.use(cors())
 app.use(express.json())
 
 const PORT = process.env.PORT || 8081
