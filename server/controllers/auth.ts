@@ -54,7 +54,6 @@ export const registerNewUser = async (req: Request, res: Response) => {
 }
 
 export const loginUser = async (req: Request, res: Response) => {
-  console.log(TOKEN_KEY)
   try {
     const { email, password } = req.body;
 

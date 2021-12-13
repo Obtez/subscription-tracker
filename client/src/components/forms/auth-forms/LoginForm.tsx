@@ -1,7 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { UserLogin } from "../../../types/types";
+import AuthService from "../../../services/auth.service";
 
 const emptyUser: UserLogin = {
   email: "",
@@ -10,6 +12,8 @@ const emptyUser: UserLogin = {
 
 function LoginForm() {
   const [userData, setUserData] = useState<UserLogin>(emptyUser)
+
+  let navigate = useNavigate();
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -21,9 +25,14 @@ function LoginForm() {
   }
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault()
-    const response = await axios.post("http://localhost:8090/api/auth/login", userData);
-    console.log(response.data);
+    e.preventDefault();
+    AuthService.login(userData.email, userData.password).then(response => {
+      if (response.status === 201) {
+        navigate("/profile", {state: response.data})
+      } else {
+        console.log("error");
+      }
+    })
   }
 
   return (
